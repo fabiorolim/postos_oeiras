@@ -1,0 +1,1 @@
+web: gunicorn postos_oeiras.wsgi --log-file -
