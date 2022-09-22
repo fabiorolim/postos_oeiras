@@ -44,6 +44,9 @@ class Preco(models.Model):
     adm = models.ForeignKey(name='administrador', to=User, on_delete=models.CASCADE)
     data_add = models.DateField('data', auto_now_add=True)
 
+    def __str__(self):
+        return str(self.preco)
+
     class Meta:
         verbose_name = 'Preço'
         verbose_name_plural = 'Preços'
