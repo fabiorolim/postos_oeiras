@@ -21,7 +21,18 @@ class CombustivelAdmin(admin.ModelAdmin):
 
 
 class PrecoAdmin(admin.ModelAdmin):
-    list_display = ('preco', 'posto', 'adm', 'data_add')
+    list_display = ('preco', 'combustivel', 'posto', 'adm', 'data_add')
+    readonly_fields = 'adm',
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == 'posto':
+            kwargs["queryset"] = Posto.objects.filter(adm=request.user)
+
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+    def save_model(self, request, obj, form, change):
+        obj.adm = request.user
+        super().save_model(request, obj, form, change)
 
 
 admin.site.register(Preco, PrecoAdmin)
