@@ -39,7 +39,7 @@ class Combustivel(models.Model):
 
 class Preco(models.Model):
     combustivel = models.ForeignKey(Combustivel, on_delete=models.CASCADE, related_query_name='combustivel')
-    posto = models.ForeignKey(Posto, on_delete=models.CASCADE)
+    posto = models.ForeignKey(Posto, on_delete=models.CASCADE, related_name='posto')
     preco = models.DecimalField(decimal_places=2, max_digits=5)
     adm = models.ForeignKey(User, on_delete=models.CASCADE)
     data_add = models.DateField('data', auto_now_add=True)
