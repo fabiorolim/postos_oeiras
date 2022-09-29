@@ -7,6 +7,7 @@ class Posto(models.Model):
     nome_fantasia = models.CharField('nome', max_length=100)
     localizacao = models.URLField('localizacao', blank=True)
     slug = models.SlugField('slug', blank=True, max_length=50)
+    bandeira = models.CharField('bandeira', blank=True, max_length=50)
     foto = models.URLField('foto', blank=True)
     site = models.URLField('site', blank=True)
     telefone = models.CharField('telefone', max_length=11, blank=True)
@@ -39,7 +40,7 @@ class Combustivel(models.Model):
 
 class Preco(models.Model):
     combustivel = models.ForeignKey(Combustivel, on_delete=models.CASCADE, related_query_name='combustivel')
-    posto = models.ForeignKey(Posto, on_delete=models.CASCADE)
+    posto = models.ForeignKey(Posto, on_delete=models.CASCADE, related_name='posto')
     preco = models.DecimalField(decimal_places=2, max_digits=5)
     adm = models.ForeignKey(User, on_delete=models.CASCADE)
     data_add = models.DateField('data', auto_now_add=True)
