@@ -20,6 +20,10 @@
             </td>
             <td>{{ preco.data_add }}</td>
         </tr>
+    {% empty %}
+        <div class="alert alert-danger" role="alert">
+            Não há preços para este combustível!
+        </div>
     {% endfor %}
     </tbody>
 </table>
