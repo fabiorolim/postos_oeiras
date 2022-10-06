@@ -15,11 +15,15 @@
             <th scope="row">{{ forloop.counter }}º</th>
             <td>{{ preco.nome_fantasia }}</td>
             <td>{{ preco.bandeira }}</td>
-            <td>{{ preco.preco }}</td>
-            <td><a>{{ preco.localizacao }}</a>
+            <td>R$ {{ preco.preco }}</td>
+            <td><a target="_blank" href="{{ preco.localizacao }}">{{ preco.localizacao }}</a>
             </td>
             <td>{{ preco.data_add }}</td>
         </tr>
+    {% empty %}
+        <div class="alert alert-danger" role="alert">
+            Não há preços para este combustível!
+        </div>
     {% endfor %}
     </tbody>
 </table>
