@@ -1,0 +1,25 @@
+<table class="table">
+    <thead class="table-light">
+    <tr>
+        <th scope="col">Posição</th>
+        <th scope="col">Posto</th>
+        <th scope="col">Bandeira</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Localização</th>
+        <th scope="col">Última atualização</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for preco in precos %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}º</th>
+            <td>{{ preco.nome_fantasia }}</td>
+            <td>{{ preco.bandeira }}</td>
+            <td>{{ preco.preco }}</td>
+            <td><a>{{ preco.localizacao }}</a>
+            </td>
+            <td>{{ preco.data_add }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
