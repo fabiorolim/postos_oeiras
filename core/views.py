@@ -29,7 +29,7 @@ def ranking(request):
         po.bandeira, p.data_add from core_preco as p 
         INNER JOIN core_posto as po ON po.id = p.posto_id 
         INNER JOIN core_combustivel as c ON p.combustivel_id = c.id 
-        WHERE c.id = %s GROUP BY po.id HAVING max(po.data_add) 
+        WHERE c.id = %s AND po.ativo=true GROUP BY po.id HAVING max(p.data_add) 
         order by p.preco''', [pk]
     )
 
