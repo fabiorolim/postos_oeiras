@@ -16,7 +16,7 @@ class PostoAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             return super().get_queryset(request)
 
-        return Posto.objects.filter(adm=request.user)
+        return Posto.objects.filter(adm=request.user).filter(ativo=True)
 
 
 class CombustivelAdmin(admin.ModelAdmin):
@@ -38,7 +38,10 @@ class PrecoAdmin(admin.ModelAdmin):
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == 'posto':
-            kwargs["queryset"] = Posto.objects.filter(adm=request.user)
+            kwargs["queryset"] = Posto.objects.filter(adm=request.user).filter(ativo=True)
+
+        if db_field.name == 'combustivel':
+            kwargs["queryset"] = Combustivel.objects.filter(ativo=True)
 
         return super().formfield_for_foreignkey(db_field, request, **kwargs)
 
