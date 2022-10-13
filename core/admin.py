@@ -16,7 +16,7 @@ class PostoAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             return super().get_queryset(request)
 
-        return Posto.objects.filter(adm=request.user).filter(ativo=True)
+        return Posto.objects.filter(adm=request.user)
 
 
 class CombustivelAdmin(admin.ModelAdmin):
