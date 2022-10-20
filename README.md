@@ -7,7 +7,7 @@
 * Instale as dependências
 
 ```
-git clone git@github.com:/fabiorolim/postos_oeiras.git postos_oeiras
+git clone https://github.com/fabiorolim/postos_oeiras.git
 cd postos_oeiras 
 python3 -m venv .postos_oeiras
 source .postos_oeiras/bin/activate
