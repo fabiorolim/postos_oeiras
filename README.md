@@ -18,7 +18,7 @@ pip install -r requirements-dev.txt
 ```
 SECRET_KEY=
 DEBUG=
-
+```
 
 ###### Rodando localmente:
 ```
