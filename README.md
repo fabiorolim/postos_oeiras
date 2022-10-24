@@ -14,6 +14,12 @@ source .postos_oeiras/bin/activate
 pip install -r requirements-dev.txt
 ```
 
+* Crie o arquivo .env
+```
+SECRET_KEY=
+DEBUG=
+
+
 ###### Rodando localmente:
 ```
 ./manage.py migrate
