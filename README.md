@@ -23,6 +23,6 @@ DEBUG=
 ###### Rodando localmente:
 ```
 ./manage.py migrate
-./manage.py create superuser
+./manage.py createsuperuser
 ./manage.py runserver
 ```
